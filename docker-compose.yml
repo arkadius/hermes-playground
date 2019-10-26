@@ -50,11 +50,6 @@ services:
       - kafka
       - graphite
 
-  kafka-sh-tools:
-    image: kafka-sh-tools:0.1
-    container_name: kafka-sh-tools
-    command: tail -F anything
-
   subscriber:
     image: hermes-subscriber
     ports:
