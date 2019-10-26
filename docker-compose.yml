@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  zk:
+    image: confluentinc/cp-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zk
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
+      KAFKA_ZOOKEEPER_CONNECT: zk:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  graphite:
+    image: nickstenning/graphite
+    ports:
+      - "80:80"
+      - "2003:2003"
+
+  management:
+    image: hermes-management
+    ports:
+      - "8090:8090"
+    depends_on:
+      - zk
+      - kafka
+      - graphite
+
+  frontend:
+    image: hermes-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zk
+      - kafka
+      - graphite
+
+  consumer:
+    image: hermes-consumers
+    depends_on:
+      - zk
+      - kafka
+      - graphite
+
+  kafka-sh-tools:
+    image: kafka-sh-tools:0.1
+    container_name: kafka-sh-tools
+    command: tail -F anything
+
+  subscriber:
+    image: hermes-subscriber
+    ports:
+      - "8099:8099"
+
