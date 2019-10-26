@@ -18,3 +18,20 @@ docker-compose up
 # publish events
 ./publish-events.sh --topic=pl.allegro.test.Foo --limit=10
 ```
+
+If you need subscriber that returns 500 create a subscription with endpoint:
+```
+http://subscriber:8099/500
+```
+
+If you need subscriber that returns 301 create a subscription with endpoint:
+```
+http://subscriber:8099/301
+```
+
+The configured subscriber returns 200 for all other endpoints, e.g.
+```
+http://subscriber:8099/200
+http://subscriber:8099/test
+...
+```
