@@ -55,9 +55,9 @@ fi
 
 for (( i=1; i<=$LIMIT; i++ ))
 do
-	sleep 0.2;
+    sleep 0.2;
     echo "------ Sending $i. message... --------"
     content="{ \"id\": \"$i\", \"name\": \"test-$i\" }"
-	curl --verbose -XPOST localhost:8080/topics/$TOPIC -H "Content-Type:application/json" -d "$content"
+    curl --verbose -XPOST localhost:8080/topics/$TOPIC -H "Content-Type:application/json" -d "$content"
 done
 

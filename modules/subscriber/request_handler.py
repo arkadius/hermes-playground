@@ -35,9 +35,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         print(self.rfile.read(length))
         print("<----- Request " + str(count) + "  End -----\n")
         
-        if self.path == '/5xx':
+        if self.path == '/500':
             self.send_response(500)
-        elif self.path == '/3xx':
+        elif self.path == '/301':
             self.send_response(301)
             self.send_header('Location', 'http://subscriber:8099/new-location')
         else:
