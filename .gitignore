@@ -1,2 +1,5 @@
 *.zip
 local/**/*.zip
+
+# console
+modules/console/hermes-console
