@@ -1,10 +1,7 @@
-FROM python:2
+FROM jeanblanchard/java:8
 
 EXPOSE 8099
 
-WORKDIR /usr/src/app
+ADD build/libs/hermes-subscriber-*.jar /opt/hermes-subscriber.jar
 
-COPY request_handler.py ./
-
-CMD [ "python", "./request_handler.py" ]
-
+CMD java -jar /opt/hermes-subscriber.jar

@@ -1,0 +1,53 @@
+group 'com.github.jewertow'
+version '0.1-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    ext.ktor_version = '1.3.0'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+mainClassName = 'com.github.jewertow.AppKt'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'com.github.jewertow.AppKt')
+    }
+
+    from {
+        configurations.compileClasspath.filter { it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+}
