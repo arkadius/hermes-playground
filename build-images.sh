@@ -25,5 +25,6 @@ cp ${HERMES_PATH}/hermes-management/build/distributions/hermes-management-*.zip 
 docker build -t hermes-management:latest modules/management/
 
 echo "Building hermes-subscriber..."
-docker build -t hermes-subscriber:latest modules/subscriber/
+modules/subscriber/gradlew clean build -p modules/subscriber/
+docker build -t hermes-subscriber:latest modules/subscriber
 
