@@ -27,4 +27,3 @@ docker build -t hermes-management:latest modules/management/
 echo "Building hermes-subscriber..."
 modules/subscriber/gradlew clean build -p modules/subscriber/
 docker build -t hermes-subscriber:latest modules/subscriber
-

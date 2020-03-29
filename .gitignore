@@ -1,2 +1,3 @@
 *.zip
 local/**/*.zip
+modules/console
