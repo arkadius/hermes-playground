@@ -1,3 +1,5 @@
 *.zip
 local/**/*.zip
 modules/console
+/**/.gradle
+/**/build
