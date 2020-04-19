@@ -1,7 +1,7 @@
 {
   "topicName": "pl.allegro.test.Foo",
   "name": "sub1",
-  "endpoint": "http://subscriber:8099/200",
+  "endpoint": "https://subscriber:443/200",
   "description": "Test subscription",
   "owner": {
     "source": "Plaintext",
