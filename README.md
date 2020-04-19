@@ -7,13 +7,13 @@ hermes-dev-environment is an easy-to-use dev configuration of the Hermes project
 export HERMES_PATH=<your-hermes-directory>/hermes
 
 # build hermes and docker images with hermes modules
-./build-images.sh
+./setup-environments.sh
 
 # run containers with hermes (consumers, frontend, management), kafka, zookeeper, graphite and subscriber
 docker-compose up
 
 # setup topic and subscription
-./setup-data.sh
+./setup-subscriptions.sh
 
 # publish events
 ./publish-events.sh --topic=pl.allegro.test.Foo --limit=10
