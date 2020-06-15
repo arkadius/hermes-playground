@@ -3,6 +3,7 @@ version: '3'
 services:
   zk:
     image: confluentinc/cp-zookeeper
+    network_mode: host
     container_name: zk
     ports:
       - "2181:2181"
@@ -11,66 +12,39 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka
+    network_mode: host
     container_name: kafka
     ports:
       - "9092:9092"
     depends_on:
       - zk
     environment:
-      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
-      KAFKA_ZOOKEEPER_CONNECT: zk:2181
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:9092"
+      KAFKA_ZOOKEEPER_CONNECT: localhost:2181
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-  graphite:
-    image: nickstenning/graphite
-    container_name: graphite
-    ports:
-      - "80:80"
-      - "2003:2003"
-
-  schema-registry:
-    image: confluentinc/cp-schema-registry:5.1.0
-    depends_on:
-      - kafka
-      - zk
-    environment:
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zk:2181
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-    ports:
-      - "8081:8081"
 
   management:
     image: hermes-management
+    network_mode: host
     container_name: management
-    ports:
-      - "8090:8090"
     depends_on:
       - zk
       - kafka
-      - graphite
 
   frontend:
     image: hermes-frontend
+    network_mode: host
     container_name: frontend
-    ports:
-      - "8080:8080"
     depends_on:
       - zk
       - kafka
-      - graphite
 
   consumer:
     image: hermes-consumers
+    network_mode: host
     container_name: consumer
     depends_on:
       - zk
       - kafka
-      - graphite
 
-  subscriber:
-    image: hermes-subscriber
-    container_name: subscriber
-    ports:
-      - "8099:8099"
 
