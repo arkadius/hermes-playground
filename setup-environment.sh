@@ -9,6 +9,17 @@ fi
 ${HERMES_PATH}/gradlew clean -p ${HERMES_PATH}
 ${HERMES_PATH}/gradlew distZip -Pdistribution -p ${HERMES_PATH}
 
+echo "Generating self-signed ssl certificate..."
+docker build -t hermes-ssl-certgen:latest -f Dockerfile.certgen .
+docker container create --name certgen hermes-ssl-certgen
+docker container cp certgen:/etc/ssl/private/nginx-selfsigned.key ./nginx-selfsigned.key
+docker container cp certgen:/etc/ssl/certs/nginx-selfsigned.crt ./nginx-selfsigned.crt
+docker container rm -f certgen
+
+cp nginx-selfsigned.crt modules/consumers
+cp nginx-selfsigned.crt modules/subscriber
+cp nginx-selfsigned.key modules/subscriber
+
 echo "Building hermes-consumers image..."
 rm modules/consumers/hermes-consumers-*.zip
 cp ${HERMES_PATH}/hermes-consumers/build/distributions/hermes-consumers-*.zip modules/consumers/

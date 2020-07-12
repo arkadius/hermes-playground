@@ -24,27 +24,27 @@ fun main(args: Array<String>) {
         routing {
             post("/200") {
                 val requestBody = call.receive<String>()
-                logger.info("Received {}. request on /200. Message: {}", counter.incrementAndGet(), requestBody)
+                logger.info("Received {}. request to /200. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respond(HttpStatusCode.OK, "")
             }
             post("/300") {
                 val requestBody = call.receive<String>()
-                logger.info("Received {}. request on /300. Message: {}", counter.incrementAndGet(), requestBody)
+                logger.info("Received {}. request to /300. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respondRedirect("http://subscriber:8099/new-location", permanent = true)
             }
             post("/400") {
                 val requestBody = call.receive<String>()
-                logger.info("Received {}. request on /400. Message: {}", counter.incrementAndGet(), requestBody)
+                logger.info("Received {}. request to /400. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respond(HttpStatusCode.BadRequest, "")
             }
             post("/500") {
                 val requestBody = call.receive<String>()
-                logger.info("Received {}. request on /500. Message: {}", counter.incrementAndGet(), requestBody)
+                logger.info("Received {}. request to /500. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respond(HttpStatusCode.InternalServerError, "")
             }
             post("/new-location") {
                 val requestBody = call.receive<String>()
-                logger.info("Received {}. request on /new-location. Message: {}", counter.incrementAndGet(), requestBody)
+                logger.info("Received {}. request to /new-location. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respond(HttpStatusCode.OK, "")
             }
         }

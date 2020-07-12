@@ -72,5 +72,6 @@ services:
     image: hermes-subscriber
     container_name: subscriber
     ports:
-      - "8099:8099"
+      - "8099:80"
+      - "443:443"
 
