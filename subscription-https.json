@@ -1,6 +1,6 @@
 {
   "topicName": "pl.allegro.test.Foo",
-  "name": "sub1",
+  "name": "https-subscriber",
   "endpoint": "https://subscriber:443/200",
   "description": "Test subscription",
   "owner": {
