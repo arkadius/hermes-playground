@@ -1,2 +1,11 @@
 *.zip
 local/**/*.zip
+
+# files produced by gradle
+/**/.gradle
+/**/build
+
+# generated SSL certificates
+nginx-selfsigned.crt
+nginx-selfsigned.key
+
