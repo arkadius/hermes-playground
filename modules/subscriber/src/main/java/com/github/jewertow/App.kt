@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
             post("/300") {
                 val requestBody = call.receive<String>()
                 logger.info("Received {}. request to /300. Message: {}", counter.incrementAndGet(), requestBody)
-                call.respondRedirect("http://subscriber:80/new-location", permanent = true)
+                call.respondRedirect("http://subscriber:8099/new-location", permanent = true)
             }
             post("/400") {
                 val requestBody = call.receive<String>()
