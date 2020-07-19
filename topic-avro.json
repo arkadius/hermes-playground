@@ -1,0 +1,21 @@
+{
+  "retentionTime": {
+    "duration": 1
+  },
+  "contentType": "AVRO",
+  "ack": "LEADER",
+  "maxMessageSize": 10240,
+  "owner": {
+    "id": "Owner",
+    "source": "Plaintext"
+  },
+  "offlineStorage": {
+    "retentionTime": {
+      "duration": 60
+    },
+    "enabled": false
+  },
+  "description": "Test description",
+  "name": "pl.allegro.test.Bar",
+  "schema": "{\"type\":\"record\",\"name\":\"Bar\",\"namespace\":\"pl.allegro.test\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"__metadata\",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}],\"default\":null}]}"
+}

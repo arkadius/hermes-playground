@@ -30,6 +30,7 @@ services:
 
   schema-registry:
     image: confluentinc/cp-schema-registry:5.1.0
+    container_name: schema-registry
     depends_on:
       - kafka
       - zk

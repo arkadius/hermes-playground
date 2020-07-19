@@ -12,3 +12,9 @@ curl -XPOST 'http://localhost:8090/topics' \
     -H 'Content-Type: application/json;charset=UTF-8' \
     -d '@./topic.json'
 
+echo "Create topic pl.allegro.test.Bar"
+curl -XPOST 'http://localhost:8090/topics' \
+    -H 'Accept: application/json' \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -d '@./topic-avro.json'
+
