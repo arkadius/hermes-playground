@@ -15,9 +15,6 @@ then
     exit 0
 fi
 
-topic=$1
-limit=$2
-
 for i in "$@"
 do
 case $i in
