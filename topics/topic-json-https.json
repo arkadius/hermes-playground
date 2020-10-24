@@ -1,0 +1,21 @@
+{
+  "retentionTime": {
+    "duration": 1
+  },
+  "contentType": "JSON",
+  "ack": "LEADER",
+  "maxMessageSize": 10240,
+  "owner": {
+    "id": "Owner",
+    "source": "Plaintext"
+  },
+  "offlineStorage": {
+    "retentionTime": {
+      "duration": 60
+    },
+    "enabled": false
+  },
+  "description": "Test description",
+  "name": "pl.allegro.test.JsonHttps",
+  "schema": null
+}

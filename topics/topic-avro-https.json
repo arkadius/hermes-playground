@@ -1,0 +1,21 @@
+{
+  "retentionTime": {
+    "duration": 1
+  },
+  "contentType": "AVRO",
+  "ack": "LEADER",
+  "maxMessageSize": 10240,
+  "owner": {
+    "id": "Owner",
+    "source": "Plaintext"
+  },
+  "offlineStorage": {
+    "retentionTime": {
+      "duration": 60
+    },
+    "enabled": false
+  },
+  "description": "Test description",
+  "name": "pl.allegro.test.AvroHttps",
+  "schema": "{\"type\":\"record\",\"name\":\"AvroHttps\",\"namespace\":\"pl.allegro.test\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"content\",\"type\":\"string\"},{\"name\":\"__metadata\",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"string\"}],\"default\":null}]}"
+}

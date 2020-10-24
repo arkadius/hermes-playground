@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "",
+  "namespace": "pl.allegro.test",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "content",
+      "type": "string"
+    },
+    {
+      "name": "__metadata",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    }
+  ]
+}

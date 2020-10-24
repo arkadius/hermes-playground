@@ -1,0 +1,24 @@
+{
+  "topicName": "pl.allegro.test.JsonHttp",
+  "name": "json-http-subscriber",
+  "endpoint": "http://subscriber:8080/200",
+  "description": "This subscription consumes JsonHttp events via http in JSON format and always returns status 200.",
+  "owner": {
+    "source": "Plaintext",
+    "id": "Owner"
+  },
+  "deliveryType": "SERIAL",
+  "mode": "ANYCAST",
+  "filters": [],
+  "contentType": "JSON",
+  "subscriptionPolicy": {
+    "messageTtl": 3600,
+    "messageBackoff": 100,
+    "sendingDelay": 0,
+    "rate": 10
+  },
+  "monitoringDetails": {
+    "severity": "NON_IMPORTANT",
+    "reaction": ""
+  }
+}

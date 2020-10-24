@@ -1,8 +1,8 @@
 {
-  "topicName": "pl.allegro.test.Foo",
-  "name": "http-subscriber",
-  "endpoint": "http://subscriber:8099/200",
-  "description": "Test subscription",
+  "topicName": "pl.allegro.test.AvroHttps",
+  "name": "avro-https-subscriber",
+  "endpoint": "https://subscriber:443/200",
+  "description": "This subscription consumes AvroHttps events via https in JSON format and always returns status 200.",
   "owner": {
     "source": "Plaintext",
     "id": "Owner"
