@@ -16,6 +16,6 @@
     "enabled": false
   },
   "description": "Test description",
-  "name": "pl.allegro.test.Foo",
+  "name": "pl.allegro.test.JsonHttp",
   "schema": null
 }

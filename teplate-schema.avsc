@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "Foo",
+  "name": "",
   "namespace": "pl.allegro.test",
   "fields": [
     {
@@ -8,7 +8,7 @@
       "type": "string"
     },
     {
-      "name": "name",
+      "name": "content",
       "type": "string"
     },
     {

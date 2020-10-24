@@ -1,6 +1,6 @@
 FROM jeanblanchard/java:8
 
-EXPOSE 8099
+EXPOSE 8080
 EXPOSE 443
 
 RUN apk add nginx

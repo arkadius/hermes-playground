@@ -19,7 +19,7 @@ class App {
 fun main(args: Array<String>) {
     val logger = App().logger
     val counter = AtomicLong()
-    embeddedServer(Netty, 8099) {
+    embeddedServer(Netty, 8080) {
         logger.info("Server is running...")
         routing {
             post("/200") {

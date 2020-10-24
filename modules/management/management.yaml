@@ -57,3 +57,6 @@ schema.repository:
   serverUrl: http://schema-registry:8081
   validationEnabled: true
 
+topic:
+  allowRemoval: true
+
