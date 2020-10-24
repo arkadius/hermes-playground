@@ -41,7 +41,8 @@ To rebuild a single Hermes module and its docker image pass the name of this mod
 ./build-hermes.sh management
 ```
 
-If you need a subscription that returns http status 200, 301, 400 or 500 create a subscription with endpoint:
+Test subscriber exposes endpoints /200, /301, /400 and /500 that return HTTP statuses 200, 301, 400 and 500.
+So if you want to test subscription that returns fixed HTTP status set the appropriate endpoint in this subscription.
 ```
 http://subscriber:8080/200
 http://subscriber:8080/301
