@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
                 logger.info("Received {}. request to /200. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respond(HttpStatusCode.OK, "")
             }
-            post("/300") {
+            post("/301") {
                 val requestBody = call.receive<String>()
                 logger.info("Received {}. request to /300. Message: {}", counter.incrementAndGet(), requestBody)
                 call.respondRedirect("http://subscriber:8099/new-location", permanent = true)
