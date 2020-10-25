@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $1 == "--help" ]
+if [ "$1" == "--help" ]
 then
     echo "Usage:"
     echo "./build-hermes.sh - build all hermes modules and docker images based on the env variable HERMES_PATH"
@@ -71,7 +71,8 @@ else
     docker build -t hermes-management:latest modules/management/
 
     echo "Building hermes-subscriber..."
-    modules/subscriber/gradlew clean build -p modules/subscriber/
+    modules/subscriber/build.sh
+    mv server modules/subscriber/
     docker build -t hermes-subscriber:latest modules/subscriber
 fi
 

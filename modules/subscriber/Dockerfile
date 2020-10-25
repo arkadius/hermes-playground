@@ -1,11 +1,10 @@
-FROM jeanblanchard/java:8
+FROM nginx:alpine
 
-EXPOSE 8080
 EXPOSE 443
+EXPOSE 8080
 
-RUN apk add nginx
-RUN mkdir /run/nginx
-RUN mkdir /etc/ssl/certs/
+RUN mkdir -p /run/nginx
+RUN mkdir -p /etc/ssl/certs/
 
 COPY nginx-selfsigned.key /etc/ssl/private/
 COPY nginx-selfsigned.crt /etc/ssl/certs/
@@ -13,6 +12,6 @@ COPY nginx-selfsigned.crt /etc/ssl/certs/
 COPY default.conf /etc/nginx/conf.d/
 RUN nginx -t
 
-COPY build/libs/hermes-subscriber-*.jar /opt/hermes-subscriber.jar
+COPY server /opt/
 
-CMD nginx && java -jar /opt/hermes-subscriber.jar
+CMD nginx && /opt/server
