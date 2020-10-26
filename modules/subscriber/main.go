@@ -9,14 +9,14 @@ import (
 )
 
 type server struct {
-	mux 	*sync.Mutex
+	mux     *sync.Mutex
 	counter int32
 }
 
 func main() {
 	s := server{&sync.Mutex{}, 0}
 	fmt.Println("HTTP server is starting...")
-	http.HandleFunc("/200", s.postHandler( 200, nil))
+	http.HandleFunc("/200", s.postHandler(200, nil))
 	http.HandleFunc("/301", s.postHandler(301, redirect))
 	http.HandleFunc("/400", s.postHandler(400, nil))
 	http.HandleFunc("/500", s.postHandler(500, nil))
@@ -54,7 +54,7 @@ func (s *server) countAndGet() int32 {
 }
 
 func unsupportedRequest(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf( "Received unsupported request %s\n", r.Method)
+	fmt.Printf("Received unsupported request %s\n", r.Method)
 	w.WriteHeader(405)
 }
 
