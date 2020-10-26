@@ -71,7 +71,8 @@ else
     docker build -t hermes-management:latest modules/management/
 
     echo "Building hermes-subscriber..."
-    modules/subscriber/build.sh
+    rm modules/subscriber/server
+    (cd modules/subscriber && ./build.sh)
     mv server modules/subscriber/
     docker build -t hermes-subscriber:latest modules/subscriber
 fi

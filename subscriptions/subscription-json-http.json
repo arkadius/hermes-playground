@@ -1,7 +1,7 @@
 {
   "topicName": "pl.allegro.test.JsonHttp",
   "name": "json-http-subscriber",
-  "endpoint": "http://subscriber:8080/200",
+  "endpoint": "http://subscriber:80/200",
   "description": "This subscription consumes JsonHttp events via http in JSON format and always returns status 200.",
   "owner": {
     "source": "Plaintext",
