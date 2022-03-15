@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if [ "$1" == "--help" ]
 then
     echo "Usage:"
@@ -71,9 +73,8 @@ else
     docker build -t hermes-management:latest modules/management/
 
     echo "Building hermes-subscriber..."
-    rm modules/subscriber/server
+    rm -f modules/subscriber/server
     (cd modules/subscriber && ./build.sh)
-    mv server modules/subscriber/
     docker build -t hermes-subscriber:latest modules/subscriber
 fi
 

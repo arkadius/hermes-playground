@@ -2,5 +2,6 @@ FROM golang:alpine
 
 COPY main.go /opt/
 WORKDIR /opt
+RUN go env -w GO111MODULE=off
 RUN go build -o server
 
