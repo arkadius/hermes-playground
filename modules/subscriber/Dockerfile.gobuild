@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.15-alpine3.14
 
 COPY main.go /opt/
 WORKDIR /opt

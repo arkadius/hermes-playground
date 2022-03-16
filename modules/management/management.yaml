@@ -1,7 +1,6 @@
 zookeeper:
   enabled: false
 
-
 storage:
   pathPrefix: /run/hermes
   clusters:
@@ -15,19 +14,20 @@ kafka:
     -
       datacenter: dc
       clusterName: primary
-      connectionString: zk:2181
       connectionTimeout: 3000
       bootstrapKafkaServer: kafka:9092
 
-spring:
-  jersey:
-    type: servlet
-  mvc:
-    servlet:
-      path: /status
+metrics:
+  graphiteHttpUri: graphite:8082
+  graphite:
+    enabled: true
 
 server:
   port: 8090
+
+spring:
+  jersey:
+    type: filter
 
 management:
   endpoints:
@@ -54,9 +54,10 @@ subscriptionOwnerCache:
   refreshRateInSeconds: 300
 
 schema.repository:
+  type: schema_registry
   serverUrl: http://schema-registry:8081
   validationEnabled: true
 
-topic:
-  allowRemoval: true
-
+console:
+  configurationLocation: console/config-local.json
+  configurationType: classpath_resource

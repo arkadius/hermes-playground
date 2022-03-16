@@ -5,7 +5,12 @@ local/**/*.zip
 /**/.gradle
 /**/build
 
+# Intelij IDEA files
+.idea/
+
 # generated SSL certificates
 nginx-selfsigned.crt
 nginx-selfsigned.key
 
+# generated go subscriber server
+modules/subscriber/server
