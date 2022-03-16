@@ -1,8 +1,6 @@
-FROM alpine
+FROM alpine:3.14
 
 RUN apk add openssl
-RUN mkdir -p /etc/ssl/private
-RUN mkdir -p /etc/ssl/certs
 RUN openssl req \
     -x509 \
     -nodes \
