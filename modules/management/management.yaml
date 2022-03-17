@@ -53,11 +53,15 @@ topicOwnerCache:
 subscriptionOwnerCache:
   refreshRateInSeconds: 300
 
+topic:
+  avroContentTypeMetadataRequired: false
+
 schema.repository:
   type: schema_registry
   serverUrl: http://schema-registry:8081
   validationEnabled: true
 
 console:
-  configurationLocation: console/config-local.json
-  configurationType: classpath_resource
+  configurationType: spring_config
+  topic:
+    avroContentTypeMetadataRequired: false

@@ -10,17 +10,6 @@
     {
       "name": "content",
       "type": "string"
-    },
-    {
-      "name": "__metadata",
-      "type": [
-        "null",
-        {
-          "type": "map",
-          "values": "string"
-        }
-      ],
-      "default": null
     }
   ]
 }
